@@ -1,5 +1,5 @@
 {
-  "name": "citi-webplate",
+  "name": "{{ project_name }}",
   "version": "1.0.0",
   "description": "The CITi Webplate Project",
   "main": "gulpfile.js",

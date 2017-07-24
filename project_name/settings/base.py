@@ -1,9 +1,11 @@
 import os
 import json
 
+from django.core.exceptions import ImproperlyConfigured
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-with open('project_config.json') as f:
+with open(os.environ.get('PROJECT_CONFIG')) as f:
     configs = json.loads(f.read())
 
 def configure_variable(setting, configs=configs):
@@ -15,7 +17,7 @@ def configure_variable(setting, configs=configs):
             val = False
         return val
     except KeyError:
-        error_msg = 'ImproperlyConfigured: Set {0} variable in your configurations file'.format(setting)
+        error_msg = 'ImproperlyConfigured: Set {0} variable in your environment'.format(setting)
         raise ImproperlyConfigured(error_msg)
 
 SECRET_KEY = configure_variable('SECRET_KEY')
