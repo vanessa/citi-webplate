@@ -7,7 +7,7 @@ var cleanCSS = require('gulp-clean-css');
 var uglify = require('gulp-uglify');
 var spawn = require('child_process').spawn;
 
-gulp.task('build-minify-css', function() {
+gulp.task('build-css', function() {
 	return gulp.src('assets/scss/style.scss')
 		.pipe(sass())
 		.pipe(cleanCSS({compatibility: 'ie8'}))
@@ -15,7 +15,7 @@ gulp.task('build-minify-css', function() {
 		.pipe(gulp.dest('./static/css/'));
 });
 
-gulp.task('minify-js', function() {
+gulp.task('build-js', function() {
 	return gulp.src('./assets/js/script.js')
 		.pipe(uglify())
 		.pipe(rename({ extname: '.min.js' }))
@@ -24,7 +24,19 @@ gulp.task('minify-js', function() {
 
 gulp.task('runserver', function() {
 	gulp.watch('assets/scss/style.scss', ['build-css']);
-	gulp.watch('assets/js/script.js', ['minify-js']);
+	gulp.watch('assets/js/script.js', ['build-js']);
 
-	var runserver = spawn();
+	var runserver = spawn(
+		process.env['VIRTUAL_ENV'] + '/bin/python',
+		['manage.py', 'runserver', '--settings=project_name.settings.development'],
+		{ stdio: 'inherit' }
+	);
+
+	runserver.on('close', function(code) {
+		if(code !== 0) {
+			console.error('Django runserver exited with error code: ' + code);
+		} else {
+			console.log('Django runserver exited normally.');
+		}
+	});
 });
