@@ -1,0 +1,5 @@
+**/.DS_Store
+venv/
+*.pyc
+project_config.json
+db.sqlite3
