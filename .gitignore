@@ -1,5 +1,10 @@
-**/.DS_Store
-venv/
+*.DS_Store
 *.pyc
+
 project_config.json
 db.sqlite3
+
+node_modules/
+static/
+media/
+venv/
