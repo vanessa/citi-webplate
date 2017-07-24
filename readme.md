@@ -1,9 +1,13 @@
 # CITi Webplate
 
-Para criar um projeto
+1. Crie um diretório configurado com um ambiente virtual e instale o Django nele
 
-`django-admin startproject your_project_name . --template=https://github.com/citiufpe/citi-webplate/archive/master.zip`
+2. `django-admin startproject your_project_name . --extension py,json --name gulpfile.js --template=/path/to/citi-webplate/`
 
-Para executar em ambiente de desenvolvimento:
+3. `npm install`
 
-`gulp runserver`
+4. Crie um arquivo `project_config.json` que contenha pares de chave/valor das seguintes variáveis de configuração: SECRET_KEY
+
+5. `export PROJECT_CONFIG="/path/to/project_config.json"`
+
+6. Para rodar em ambiente de desenvolvimento: `gulp runserver`

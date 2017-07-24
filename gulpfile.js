@@ -28,7 +28,7 @@ gulp.task('runserver', function() {
 
 	var runserver = spawn(
 		process.env['VIRTUAL_ENV'] + '/bin/python',
-		['manage.py', 'runserver', '--settings=project_name.settings.development'],
+		['manage.py', 'runserver', '--settings={{ project_name }}.settings.development'],
 		{ stdio: 'inherit' }
 	);
 
