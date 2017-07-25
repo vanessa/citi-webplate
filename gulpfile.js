@@ -12,14 +12,14 @@ gulp.task('build-css', function() {
 		.pipe(sass())
 		.pipe(cleanCSS({compatibility: 'ie8'}))
 		.pipe(rename({ extname: '.min.css' }))
-		.pipe(gulp.dest('./static/css/'));
+		.pipe(gulp.dest('./{{ project_name }}/static/css/'));
 });
 
 gulp.task('build-js', function() {
 	return gulp.src('./assets/js/script.js')
 		.pipe(uglify())
 		.pipe(rename({ extname: '.min.js' }))
-		.pipe(gulp.dest('./static/js/'));
+		.pipe(gulp.dest('./{{ project_name }}/static/js/'));
 });
 
 // Possibly refresh browser using live reload
