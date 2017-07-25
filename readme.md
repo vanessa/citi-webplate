@@ -1,10 +1,10 @@
 # CITi Webplate
 
-1. Crie um diretório configurado com um ambiente virtual
+1. Crie um diretório configurado com um ambiente virtual, em seguida `pip install django`
 
-2. `pip install -r requirements.txt`
+2. `django-admin startproject your_project_name . --extension py,json --name gulpfile.js --template=/path/to/citi-webplate/`
 
-3. `django-admin startproject your_project_name . --extension py,json --name gulpfile.js --template=/path/to/citi-webplate/`
+3. `pip install -r requirements.txt`
 
 4. `npm install`
 
