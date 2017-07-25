@@ -4,5 +4,14 @@
 {% block body_content %}
 <h1>Register</h1>
 <a href="{% url 'core:index' %}">Index</a>
-{{ form }}
+<form method="POST">
+    <fieldset>
+        {% csrf_token %}
+        {% for field in form %}
+        {% render_field field placeholder=field.label %}
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </fieldset>
+    {{ form.non_field_errors }}
+</form>
 {% endblock %}

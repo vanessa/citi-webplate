@@ -22,8 +22,6 @@ gulp.task('build-js', function() {
 		.pipe(gulp.dest('./{{ project_name }}/static/js/'));
 });
 
-// Possibly refresh browser using live reload
-
 gulp.task('runserver', ['build-css', 'build-js'], function() {
 	gulp.watch('assets/scss/style.scss', ['build-css']);
 	gulp.watch('assets/js/script.js', ['build-js']);

@@ -21,7 +21,7 @@ from .forms import (
 
 class LoginView(FormView):
     template_name = 'accounts/login.html'
-    model = Member
+    model = User
     success_url = reverse_lazy('core:index')
     form_class = LoginForm
 
@@ -42,6 +42,6 @@ class LogoutView(LoginRequiredMixin, RedirectView):
 
 class RegisterView(CreateView):
     template_name = 'accounts/register.html'
-    model = Member
+    model = User
     success_url = reverse_lazy('core:index')
     form_class = RegisterForm
