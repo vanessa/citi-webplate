@@ -6,8 +6,10 @@
 
 3. `npm install`
 
-4. Crie um arquivo `project_config.json` que contenha pares de chave/valor das seguintes variáveis de configuração: SECRET_KEY
+4. Crie um arquivo `project_config.json` que contenha pares de chave/valor das seguintes variáveis de configuração: `SECRET_KEY`
 
-5. `export PROJECT_CONFIG="/path/to/project_config.json"`
+5. `export YOUR_PROJECT_NAME_CONFIG="/path/to/project_config.json"`
 
-6. Para rodar em ambiente de desenvolvimento: `gulp runserver`
+6. `pip install -r requirements.txt`
+
+7. Para rodar em ambiente de desenvolvimento: `gulp runserver`
