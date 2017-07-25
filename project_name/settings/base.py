@@ -5,8 +5,12 @@ from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-with open(os.environ.get('PROJECT_CONFIG')) as f:
-    configs = json.loads(f.read())
+try:
+    with open(os.environ.get('{{ project_name|upper }}_CONFIG')) as f:
+        configs = json.loads(f.read())
+except TypeError:
+    error_msg = 'ImproperlyConfigured: Configure your {{ project_name|upper }}_CONFIG environment variable'
+    raise ImproperlyConfigured(error_msg)
 
 def configure_variable(setting, configs=configs):
     try:
@@ -35,6 +39,7 @@ INSTALLED_APPS = [
     'core',
     'accounts',
     # Libs
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -84,6 +89,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = 'accounts.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
