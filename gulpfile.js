@@ -12,17 +12,19 @@ gulp.task('build-css', function() {
 		.pipe(sass())
 		.pipe(cleanCSS({compatibility: 'ie8'}))
 		.pipe(rename({ extname: '.min.css' }))
-		.pipe(gulp.dest('./static/css/'));
+		.pipe(gulp.dest('./{{ project_name }}/static/css/'));
 });
 
 gulp.task('build-js', function() {
 	return gulp.src('./assets/js/script.js')
 		.pipe(uglify())
 		.pipe(rename({ extname: '.min.js' }))
-		.pipe(gulp.dest('./static/js/'));
+		.pipe(gulp.dest('./{{ project_name }}/static/js/'));
 });
 
-gulp.task('runserver', function() {
+// Possibly refresh browser using live reload
+
+gulp.task('runserver', ['build-css', 'build-js'], function() {
 	gulp.watch('assets/scss/style.scss', ['build-css']);
 	gulp.watch('assets/js/script.js', ['build-js']);
 
