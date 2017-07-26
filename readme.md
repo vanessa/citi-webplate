@@ -10,7 +10,7 @@
 
 5. Crie um arquivo `project_config.json` que contenha pares de chave/valor das seguintes variáveis de configuração: `SECRET_KEY`
 
-6. `export YOUR_PROJECT_NAME_CONFIG="/path/to/project_config.json"`
+6. `export YOUR_PROJECT_NAME_CONFIG="/path/to/project_config.json"` (no Windows use `set YOUR_PROJECT_NAME_CONFIG=/path/to/project_config.json`)
 
 7. `python manage.py makemigrations --settings=your_project_name.settings.development`
 
