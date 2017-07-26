@@ -21,7 +21,6 @@ from .forms import (
 
 class LoginView(FormView):
     template_name = 'accounts/login.html'
-    model = User
     success_url = reverse_lazy('core:index')
     form_class = LoginForm
 

@@ -26,6 +26,15 @@ def configure_variable(setting, configs=configs):
 
 SECRET_KEY = configure_variable('SECRET_KEY')
 
+# Change
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+EMAIL_HOST_USER = None
+EMAIL_HOST_PASSWORD = None
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,6 +47,7 @@ INSTALLED_APPS = [
     # Apps
     'core',
     'accounts',
+    'contact',
     # Libs
     'widget_tweaks',
 ]
@@ -104,7 +114,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
