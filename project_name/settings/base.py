@@ -12,7 +12,7 @@ except TypeError:
     error_msg = 'ImproperlyConfigured: Configure your {{ project_name|upper }}_CONFIG environment variable'
     raise ImproperlyConfigured(error_msg)
 
-def configure_variable(setting, configs=configs):
+def configure_variable(setting, fail_silently=False, configs=configs):
     try:
         val = configs[setting]
         if val == 'True':
@@ -21,19 +21,12 @@ def configure_variable(setting, configs=configs):
             val = False
         return val
     except KeyError:
+        if fail_silently:
+            return None
         error_msg = 'ImproperlyConfigured: Set {0} variable in your environment'.format(setting)
         raise ImproperlyConfigured(error_msg)
 
 SECRET_KEY = configure_variable('SECRET_KEY')
-
-# Change
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
-EMAIL_HOST_USER = None
-EMAIL_HOST_PASSWORD = None
 
 # Application definition
 
