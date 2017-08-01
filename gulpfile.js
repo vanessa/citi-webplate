@@ -5,6 +5,7 @@ var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var cleanCSS = require('gulp-clean-css');
 var uglify = require('gulp-uglify');
+var os = require('os');
 var spawn = require('child_process').spawn;
 
 gulp.task('build-css', function() {
@@ -25,9 +26,12 @@ gulp.task('build-js', function() {
 gulp.task('runserver', ['build-css', 'build-js'], function() {
 	gulp.watch('assets/scss/style.scss', ['build-css']);
 	gulp.watch('assets/js/script.js', ['build-js']);
+	
+	// Compatibility across all platforms
+	const pythonPath = (os.platform() === 'win32' ? '/scripts/' : '/bin/') + 'python';
 
 	var runserver = spawn(
-		process.env['VIRTUAL_ENV'] + '/bin/python',
+		process.env['VIRTUAL_ENV'] + pythonPath,
 		['manage.py', 'runserver', '--settings={{ project_name }}.settings.development'],
 		{ stdio: 'inherit' }
 	);
