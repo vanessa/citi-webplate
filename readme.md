@@ -8,7 +8,7 @@
 
 4. `npm install`
 
-5. Crie um arquivo `project_config.json` que contenha pares de chave/valor das seguintes variáveis de configuração: `SECRET_KEY` (você pode gerar uma chave neste [link](www.miniwebtool.com/django-secret-key-generator/))
+5. Crie um arquivo `project_config.json` que contenha pares de chave/valor das seguintes variáveis de configuração: `SECRET_KEY` (você pode gerar uma chave neste [link](http://www.miniwebtool.com/django-secret-key-generator/))
 
 6. `export YOUR_PROJECT_NAME_CONFIG="/path/to/project_config.json"` (no Windows use `set YOUR_PROJECT_NAME_CONFIG=\path\to\project_config.json`) (é necessário que o `YOUR_PROJECT_NAME_CONFIG` esteja com todas as letras maiúsculas)
 
