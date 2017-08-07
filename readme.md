@@ -12,7 +12,7 @@
 
 5. Crie variáveis de ambiente para configurar o seu ambiente utilizando o comando `export VARIABLE_NAME="value"` (no Windows use `set VARIABLE_NAME=value`). Lembre-se de subsituir `VARIABLE_NAME` pelo nome da variável e `value` pelo respectivo valor. As variáveis que devem ser criadas são as seguintes:
 
-* `SECRET_KEY` (você pode gerar uma chave neste [link](http://www.miniwebtool.com/django-secret-key-generator/))
+* `SECRET_KEY` (você pode gerar uma chave neste [link](http://www.miniwebtool.com/django-secret-key-generator/), certifique-se de que a chave gerada não começa com o caractere `!`)
 
 * `EMAIL_HOST_USER` (representa o seu e-mail)
 
