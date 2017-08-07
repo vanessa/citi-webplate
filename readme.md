@@ -1,8 +1,8 @@
 # CITi Webplate
 
-0. É necessário ter instalado o [npm](https://www.npmjs.com/get-npm) no seu computador. Feito isso, execute `npm install -g gulp-cli` para instalar o `gulp` global em seu ambiente
+0. É necessário ter instalado o [npm](https://www.npmjs.com/get-npm). Feito isso, execute `npm install -g gulp-cli` para instalar o `gulp` global em seu ambiente
 
-1. Crie um diretório configurado com um ambiente virtual, em seguida `pip install django`
+1. Crie um diretório configurado com um ambiente virtual (instruções [aqui](https://docs.python.org/3/tutorial/venv.html)), em seguida `pip install django`
 
 2. `django-admin startproject your_project_name . --extension py,json --name gulpfile.js --template=https://github.com/citiufpe/citi-webplate/archive/master.zip`
 
