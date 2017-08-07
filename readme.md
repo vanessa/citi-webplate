@@ -10,20 +10,22 @@
 
 4. `npm install`
 
-5. Crie um arquivo `project_config.json` que contenha pares de chave/valor das seguintes variáveis de configuração: `SECRET_KEY` (você pode gerar uma chave neste [link](http://www.miniwebtool.com/django-secret-key-generator/)).
+5. Crie variáveis de ambiente para configurar o seu ambiente utilizando o comando `export VARIABLE_NAME="value"` (no Windows use `set VARIABLE_NAME=value`). Lembre-se de subsituir `VARIABLE_NAME` pelo nome da variável e `value` pelo respectivo valor. As variáveis que devem ser criadas são as seguintes:
 
-Exemplo de arquivo:
-```
-{
-  "SECRET_KEY": "valor da chave secreta",
-  "CHAVE_X": "valor da chave 2",
-}
-```
+* `SECRET_KEY` (você pode gerar uma chave neste [link](http://www.miniwebtool.com/django-secret-key-generator/))
 
-6. `export YOUR_PROJECT_NAME_CONFIG="/path/to/project_config.json"` (no Windows use `set YOUR_PROJECT_NAME_CONFIG=\path\to\project_config.json`) (é necessário que o `YOUR_PROJECT_NAME_CONFIG` esteja com todas as letras maiúsculas)
+* `EMAIL_HOST_USER` (representa o seu e-mail)
 
-7. `python manage.py makemigrations --settings=your_project_name.settings.development`
+* `EMAIL_HOST_PASSWORD` (representa a senha do seu e-mail)
 
-8. `python manage.py migrate --settings=your_project_name.settings.development`
+* `EMAIL_HOST` (representa o provedor do e-mail, use `smtp.gmail.com` para o Gmail)
 
-9. Para rodar em ambiente de desenvolvimento: `gulp runserver`
+* `EMAIL_PORT` (representa a porta de envio do e-mail, use `587` para o Gmail)
+
+Caso você use o Gmail, é necessário realizar algumas configurações a mais no próprio site do serviço. Clique [aqui](https://www.codingforentrepreneurs.com/blog/use-gmail-for-email-in-django/#allow-less-secure-apps) para ver mais detalhes.
+
+6. `python manage.py makemigrations --settings=your_project_name.settings.development`
+
+7. `python manage.py migrate --settings=your_project_name.settings.development`
+
+8. Para rodar em ambiente de desenvolvimento: `gulp runserver`
