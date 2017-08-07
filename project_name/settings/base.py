@@ -5,16 +5,9 @@ from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-try:
-    with open(os.environ.get('{{ project_name|upper }}_CONFIG')) as f:
-        configs = json.loads(f.read())
-except TypeError:
-    error_msg = 'ImproperlyConfigured: Configure your {{ project_name|upper }}_CONFIG environment variable'
-    raise ImproperlyConfigured(error_msg)
-
-def configure_variable(setting, fail_silently=False, configs=configs):
+def configure_variable(setting, fail_silently=False):
     try:
-        val = configs[setting]
+        val = os.environ.get(setting)
         if val == 'True':
             val = True
         elif val == 'False':
