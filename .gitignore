@@ -5,6 +5,5 @@ db.sqlite3
 environment.py
 
 node_modules/
-static/
 media/
 venv/
