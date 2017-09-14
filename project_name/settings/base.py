@@ -77,7 +77,7 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 AUTH_USER_MODEL = 'accounts.User'
 
-SENDER_EMAIL = configure_variable('SENDER_EMAIL', True, 'no-reply@{{ project_name }}.com')
+RECIPIENT_EMAIL = configure_variable('SENDER_EMAIL', True, 'recipient@{{ project_name }}.com')
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/

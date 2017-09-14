@@ -12,7 +12,7 @@
 
 4. Crie um arquivo `environment.py` na pasta raiz do seu projeto (lembre-se de manter o arquivo fora do controle de versão), contendo as seguintes variáveis:
   * `SECRET_KEY` (obrigatória, você pode gerar uma chave neste [link](http://www.miniwebtool.com/django-secret-key-generator/), certifique-se de que a chave gerada não começa com o caractere !);
-  * `SENDER_EMAIL` (opcional, indica qual endereço de e-mail será usado para enviar mensagens na app `contact` e tem como valor padrão `no-reply@your_project_name.com`);
+  * `RECIPIENT_EMAIL` (opcional, indica para qual endereço de e-mail serão enviadas as mensagens via formulário na app `contact` e tem como valor padrão `recipient@your_project_name.com`);
 
 5. Execute `python manage.py makemigrations` e `python manage.py migrate`;
 
