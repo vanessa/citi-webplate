@@ -23,8 +23,8 @@ class ContactView(FormView):
         mail = EmailMultiAlternatives(
             subject=subject,
             body=message,
-            from_email=settings.SENDER_EMAIL,
-            to=[email],
+            from_email=email,
+            to=[settings.RECIPIENT_EMAIL],
         )
         mail.send()
         return super(ContactView, self).form_valid(form)
