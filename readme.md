@@ -10,8 +10,9 @@
 
 3. Execute `pip install -r requirements/development.txt` e em seguida `npm install`;
 
-4. Crie um arquivo `environment.py` na pasta raiz do seu projeto. Lembre-se de manter o arquivo fora do controle de versão. Ele deve conter as seguintes variáveis:
-  * `SECRET_KEY` (você pode gerar uma chave neste [link](http://www.miniwebtool.com/django-secret-key-generator/), certifique-se de que a chave gerada não começa com o caractere !);
+4. Crie um arquivo `environment.py` na pasta raiz do seu projeto (lembre-se de manter o arquivo fora do controle de versão), contendo as seguintes variáveis:
+  * `SECRET_KEY` (obrigatória, você pode gerar uma chave neste [link](http://www.miniwebtool.com/django-secret-key-generator/), certifique-se de que a chave gerada não começa com o caractere !);
+  * `SENDER_EMAIL` (opcional, indica qual endereço de e-mail será usado para enviar mensagens na app `contact` e tem como valor padrão `no-reply@your_project_name.com`);
 
 5. Execute `python manage.py makemigrations` e `python manage.py migrate`;
 
