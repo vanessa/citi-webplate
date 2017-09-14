@@ -5,9 +5,9 @@ from django.views.generic import (
 from django.core.urlresolvers import reverse_lazy
 from django.core.mail import EmailMultiAlternatives
 
-from .forms import ContactForm
+from django.conf import settings
 
-from_email = 'admin@admin.com'
+from .forms import ContactForm
 
 class ContactView(FormView):
     template_name = 'contact/contact.html'
@@ -23,7 +23,7 @@ class ContactView(FormView):
         mail = EmailMultiAlternatives(
             subject=subject,
             body=message,
-            from_email=from_email,
+            from_email=settings.SENDER_EMAIL,
             to=[email],
         )
         mail.send()
