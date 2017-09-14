@@ -14,16 +14,11 @@ ALLOWED_HOSTS = ['*']
 
 def configure_variable(setting, fail_silently=False, default_value=None):
     try:
-        val = getattr(environment, setting)
-        if val == 'True':
-            val = True
-        elif val == 'False':
-            val = False
-        return val
-    except KeyError:
+        return getattr(environment, setting)
+    except AttributeError:
         if fail_silently:
             return default_value
-        error_msg = 'ImproperlyConfigured: Set {0} variable in your environment'.format(setting)
+        error_msg = 'ImproperlyConfigured: Set {0} variable in your environment.py file'.format(setting)
         raise ImproperlyConfigured(error_msg)
 
 SECRET_KEY = configure_variable('SECRET_KEY')
