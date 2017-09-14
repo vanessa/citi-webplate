@@ -1,21 +1,11 @@
 {
   "name": "{{ project_name }}",
-  "version": "1.0.0",
-  "description": "The CITi Webplate Project",
+  "version": "0.0.1",
+  "description": "{{ project_name }} project",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/citiufpe/citi-webplate.git"
-  },
-  "author": "CITi",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/citiufpe/citi-webplate/issues"
-  },
-  "homepage": "https://github.com/citiufpe/citi-webplate#readme",
   "devDependencies": {
     "child_process": "^1.0.2",
     "gulp": "^3.9.1",

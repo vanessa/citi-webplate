@@ -1,31 +1,26 @@
 # CITi Webplate
 
-0. É necessário ter instalado o [npm](https://www.npmjs.com/get-npm). Feito isso, execute `npm install -g gulp-cli` para instalar o `gulp` global em seu ambiente
+## Ambiente de Desenvolvimento
 
-1. Crie um diretório configurado com um ambiente virtual (instruções [aqui](https://docs.python.org/3/tutorial/venv.html)), em seguida `pip install django`
+0. É necessário ter instalado o [npm](https://www.npmjs.com/get-npm) no seu computador. Feito isso, execute `npm install -g gulp-cli` para instalar o `gulp` global em seu ambiente;
 
-2. `django-admin startproject your_project_name . --extension py,json --name gulpfile.js --template=https://github.com/citiufpe/citi-webplate/archive/master.zip`
+1. Crie um diretório configurado com um ambiente virtual, em seguida `pip install Django==1.11.3`;
 
-3. `pip install -r requirements.txt`
+2. Dentro do ambiente virtual, execute `django-admin startproject your_project_name . --extension py,json --name gulpfile.js --template=https://github.com/citiufpe/citi-webplate/archive/master.zip`;
 
-4. `npm install`
+3. Execute `pip install -r requirements/development.txt` e em seguida `npm install`;
 
-5. Crie variáveis de ambiente para configurar o seu ambiente utilizando o comando `export VARIABLE_NAME="value"` (no Windows use `set VARIABLE_NAME=value`). Lembre-se de subsituir `VARIABLE_NAME` pelo nome da variável e `value` pelo respectivo valor. As variáveis que devem ser criadas são as seguintes:
+4. Crie um arquivo `environment.py` na pasta raiz do seu projeto. Lembre-se de manter o arquivo fora do controle de versão. Ele deve conter as seguintes variáveis:
+  * `SECRET_KEY` (você pode gerar uma chave neste [link](http://www.miniwebtool.com/django-secret-key-generator/), certifique-se de que a chave gerada não começa com o caractere !);
 
-* `SECRET_KEY` (você pode gerar uma chave neste [link](http://www.miniwebtool.com/django-secret-key-generator/), certifique-se de que a chave gerada não começa com o caractere `!`)
+5. Execute `python manage.py makemigrations` e `python manage.py migrate`;
 
-* `EMAIL_HOST_USER` (representa o seu e-mail)
+6. Para rodar, execute `gulp runserver`.
 
-* `EMAIL_HOST_PASSWORD` (representa a senha do seu e-mail)
+## Testando
 
-* `EMAIL_HOST` (representa o provedor do e-mail, use `smtp.gmail.com` para o Gmail)
+Em breve...
 
-* `EMAIL_PORT` (representa a porta de envio do e-mail, use `587` para o Gmail)
+## Deployment
 
-Caso você use o Gmail, é necessário realizar algumas configurações a mais no próprio site do serviço. Clique [aqui](https://www.codingforentrepreneurs.com/blog/use-gmail-for-email-in-django/#allow-less-secure-apps) para ver mais detalhes.
-
-6. `python manage.py makemigrations --settings=your_project_name.settings.development`
-
-7. `python manage.py migrate --settings=your_project_name.settings.development`
-
-8. Para rodar em ambiente de desenvolvimento: `gulp runserver`
+Em breve...

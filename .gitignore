@@ -1,8 +1,8 @@
 *.DS_Store
 *.pyc
 
-project_config.json
 db.sqlite3
+environment.py
 
 node_modules/
 static/
