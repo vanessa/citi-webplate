@@ -26,14 +26,12 @@ gulp.task('build-js', function() {
 gulp.task('runserver', ['build-css', 'build-js'], function() {
 	gulp.watch('assets/scss/style.scss', ['build-css']);
 	gulp.watch('assets/js/script.js', ['build-js']);
-	
+
 	// Compatibility across all platforms
 	const pythonPath = (os.platform() === 'win32' ? '/scripts/' : '/bin/') + 'python';
 
 	var runserver = spawn(
-		process.env['VIRTUAL_ENV'] + pythonPath,
-		['manage.py', 'runserver', '--settings={{ project_name }}.settings.development'],
-		{ stdio: 'inherit' }
+		process.env['VIRTUAL_ENV'] + pythonPath, ['manage.py', 'runserver'], { stdio: 'inherit' }
 	);
 
 	runserver.on('close', function(code) {

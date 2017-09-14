@@ -1,13 +1,20 @@
 import os
 import json
 
+try:
+    import environment
+except ImportError:
+    raise ImportError('ImportError: Please create environment.py on your project root')
+
 from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-def configure_variable(setting, fail_silently=False):
+ALLOWED_HOSTS = ['*']
+
+def configure_variable(setting, fail_silently=False, default_value=None):
     try:
-        val = os.environ.get(setting)
+        val = getattr(environment, setting)
         if val == 'True':
             val = True
         elif val == 'False':
@@ -15,7 +22,7 @@ def configure_variable(setting, fail_silently=False):
         return val
     except KeyError:
         if fail_silently:
-            return None
+            return default_value
         error_msg = 'ImproperlyConfigured: Set {0} variable in your environment'.format(setting)
         raise ImproperlyConfigured(error_msg)
 
@@ -67,24 +74,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
-
-# Password validation
-# https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
 
 AUTH_USER_MODEL = 'accounts.User'
 
