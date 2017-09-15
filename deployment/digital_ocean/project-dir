@@ -1,0 +1,27 @@
+upstream app_server {
+    server unix:/home/{{ USER_NAME }}/run/gunicorn.sock fail_timeout=0;
+}
+
+server {
+    listen 80;
+
+    server_name {{ IP_ADDRESS }};
+
+    keepalive_timeout 5;
+    client_max_body_size 4G;
+
+    access_log /home/{{ USER_NAME }}/logs/nginx-access.log;
+    error_log /home/{{ USER_NAME }}/logs/nginx-error.log;
+
+    # checks for static file, if not found proxy to app
+    location / {
+        try_files $uri @proxy_to_app;
+    }
+
+    location @proxy_to_app {
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header Host $http_host;
+      proxy_redirect off;
+      proxy_pass http://app_server;
+    }
+}
