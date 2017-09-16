@@ -24,4 +24,4 @@ Em breve...
 
 ## Deployment
 
-* [DigitalOcean](citiufpe/citi-webplate/blob/master/deployment/digital_ocean/readme.md)
+* [DigitalOcean](deployment/digital_ocean/readme.md)
