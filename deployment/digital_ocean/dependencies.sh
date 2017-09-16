@@ -10,5 +10,5 @@ apt-get -y install supervisor
 systemctl enable supervisor
 systemctl start supervisor
 
--H pip3 install --upgrade pip
--H pip3 install virtualenv
+pip3 install --upgrade pip
+pip3 install virtualenv
