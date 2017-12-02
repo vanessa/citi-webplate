@@ -1,6 +1,6 @@
 # Deployment no DigitalOcean
 
-1. Após acessar o droplet escolhido via SSH, é necessário inicialmente instalar algumas dependências. Para isso, crie um arquivo `dependencies.sh` contendo o seguinte [conteúdo](https://raw.githubusercontent.com/citiufpe/citi-webplate/dev/deployment/digital_ocean/dependencies.sh) e execute `sudo -H dependencies.sh`;
+1. Após acessar o droplet escolhido via SSH, é necessário inicialmente instalar algumas dependências. Para isso, crie um arquivo `dependencies.sh` contendo o seguinte [conteúdo](https://raw.githubusercontent.com/citiufpe/citi-webplate/master/deployment/digital_ocean/dependencies.sh) e execute `sudo -H dependencies.sh`;
 
 2. Feito isso, acesse o usuário `postgres` do servidor usando `su - postgres`. Neste momento você realizará a configuração do banco de dados. Execute os seguintes comandos:
   ```bash
