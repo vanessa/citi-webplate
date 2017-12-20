@@ -6,7 +6,7 @@
 
 1. Crie um diretório configurado com um ambiente virtual, em seguida `pip install Django==1.11.3`;
 
-2. Dentro do ambiente virtual, execute `django-admin startproject your_project_name . --extension py,json,md --name gunicorn-config --template=https://github.com/citiufpe/citi-webplate/archive/master.zip`;
+2. Dentro do ambiente virtual, execute `django-admin startproject your_project_name . --extension py,json,md --name gunicorn-config,Procfile --template=https://github.com/citiufpe/citi-webplate/archive/master.zip`;
 
 3. Execute `pip install -r requirements/development.txt` e em seguida `npm install`;
 
@@ -23,5 +23,7 @@
 Em breve...
 
 ## Deployment
+
+* [Heroku](deployment/heroku/readme.md)
 
 * [DigitalOcean](deployment/digital_ocean/readme.md)

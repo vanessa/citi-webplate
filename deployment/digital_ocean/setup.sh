@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo -u ${2} python setup.py --PROJECT_DIR ${1} --USER_NAME ${2} --IP_ADDRESS ${3}
+sudo -u ${2} python env_setup.py --PROJECT_DIR ${1} --USER_NAME ${2} --IP_ADDRESS ${3}
 sudo -u ${2} rm gunicorn-config root-name root-name.conf
 
 sudo -u ${2} mv -v gunicorn_start /home/${2}/bin/
