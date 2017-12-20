@@ -1,28 +1,13 @@
 import os
 import json
 import dj_database_url
-
-try:
-    import environment
-except ImportError:
-    raise ImportError('ImportError: Please create environment.py on your project root')
-
-from django.core.exceptions import ImproperlyConfigured
+from decouple import config
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 ALLOWED_HOSTS = ['*']
 
-def configure_variable(setting, fail_silently=False, default_value=None):
-    try:
-        return getattr(environment, setting)
-    except AttributeError:
-        if fail_silently:
-            return default_value
-        error_msg = 'ImproperlyConfigured: Set {0} variable in your environment.py file'.format(setting)
-        raise ImproperlyConfigured(error_msg)
-
-SECRET_KEY = configure_variable('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY')
 
 # Application definition
 
@@ -73,7 +58,7 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 AUTH_USER_MODEL = 'accounts.User'
 
-RECIPIENT_EMAIL = configure_variable('RECIPIENT_EMAIL', True, 'recipient@{{ project_name }}.com')
+RECIPIENT_EMAIL = config('RECIPIENT_EMAIL', default='recipient@{{ project_name }}.com')
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/

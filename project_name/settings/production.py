@@ -12,11 +12,11 @@ if 'DATABASE_URL' in os.environ:
     default_db = dj_database_url.config(conn_max_age=500)
 else:
     db_url = 'postgres://{}:{}@{}:{}/{}'.format(
-        configure_variable('POSTGRES_DB_USER'), # USER
-        configure_variable('POSTGRES_DB_PASSWORD'), #PASSWORD
-        configure_variable('POSTGRES_DB_HOST', True, 'localhost'), #HOST
-        configure_variable('POSTGRES_DB_PORT', True, ''), #PORT
-        configure_variable('POSTGRES_DB_NAME') #NAME
+        config('POSTGRES_DB_USER'), # USER
+        config('POSTGRES_DB_PASSWORD'), #PASSWORD
+        config('POSTGRES_DB_HOST', default='localhost'), #HOST
+        config('POSTGRES_DB_PORT', default=''), #PORT
+        config('POSTGRES_DB_NAME') #NAME
     )
     default_db = dj_database_url.config(default=db_url, conn_max_age=500)
 
@@ -38,11 +38,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 EMAIL_BACKEND = 'sgbackend.SendGridBackend'
-SENDGRID_API_KEY = configure_variable('SENDGRID_API_KEY', True, '')
+SENDGRID_API_KEY = config('SENDGRID_API_KEY', default='')
 
 # Configuring STATIC files serving using whitenoise
 
-MIDDLEWARE.insert(0, 'whitenoise.middleware.WhiteNoiseMiddleware')
+MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Configuring MEDIA files storage using Amazon S3
@@ -53,12 +53,12 @@ INSTALLED_APPS += [
 
 AWS_S3_SECURE_URLS = False
 AWS_QUERYSTRING_AUTH = False
-AWS_S3_ACCESS_KEY_ID = configure_variable('AWS_S3_ACCESS_KEY_ID', True, '')
-AWS_S3_SECRET_ACCESS_KEY = configure_variable('AWS_S3_SECRET_ACCESS_KEY', True, '')
-AWS_STORAGE_BUCKET_NAME = configure_variable('AWS_STORAGE_BUCKET_NAME', True, '')
+AWS_S3_ACCESS_KEY_ID = config('AWS_S3_ACCESS_KEY_ID', default='')
+AWS_S3_SECRET_ACCESS_KEY = config('AWS_S3_SECRET_ACCESS_KEY', default='')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', default='')
 
-AWS_REGION = configure_variable('AWS_REGION')
-AWS_S3_ENDPOINT_URL = 'https://{}.digitaloceanspaces.com'.format(AWS_REGION, True, '')
+AWS_REGION = config('AWS_REGION', default='')
+AWS_S3_ENDPOINT_URL = 'https://{}.digitaloceanspaces.com'.format(AWS_REGION, default='')
 
 MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'

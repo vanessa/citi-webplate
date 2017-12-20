@@ -3,6 +3,7 @@
 
 db.sqlite3
 environment.py
+.env
 
 node_modules/
 media/
