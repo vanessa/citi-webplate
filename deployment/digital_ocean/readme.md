@@ -19,7 +19,7 @@ Lembre-se de substituir `POSTGRES_DB_USER`, `POSTGRES_DB_NAME` e `POSTGRES_DB_PA
 
 6. Clone o repositório do seu projeto para o diretório atual e acesse a pasta do mesmo usando `cd PROJECT_DIR`, substituindo `PROJECT_DIR` pelo nome da pasta do projeto;
 
-7. Instale as dependências do projeto usando `pip install -r requirements/production.txt`;
+7. Instale as dependências do projeto usando `pip install -r requirements.txt`;
 
 8. Crie um arquivo `.env` na pasta atual contendo as seguintes variáveis, seguindo as mesmas especificações da versão de desenvolvimento:
   * `DJANGO_SETTINGS_MODULE` (obrigatória, deve conter o valor `{{ project_name }}.settings.production`);
