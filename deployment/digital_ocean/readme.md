@@ -24,7 +24,7 @@ Lembre-se de substituir `POSTGRES_DB_USER`, `POSTGRES_DB_NAME` e `POSTGRES_DB_PA
 8. Crie um arquivo `.env` na pasta atual contendo as seguintes variáveis, seguindo as mesmas especificações da versão de desenvolvimento:
   * `DJANGO_SETTINGS_MODULE` (obrigatória, deve conter o valor `{{ project_name }}.settings.production`);
   * `SECRET_KEY` (obrigatória, a mesma que você gerou em ambiente de desenvolvimento);
-  * `RECIPIENT_EMAIL` (opcional, indica para qual endereço de e-mail serão enviadas as mensagens via formulário na app `contact` e tem como valor padrão `recipient@your_project_name.com`);
+  * `RECIPIENT_EMAIL` (opcional, indica para qual endereço de e-mail serão enviadas as mensagens via formulário na app `contact` e tem como valor padrão `recipient@{{ project_name }}.com`);
   * `POSTGRES_DB_NAME` (obrigatória, é o mesmo valor usado no passo 2);
   * `POSTGRES_DB_USER` (obrigatória, idem acima);
   * `POSTGRES_DB_PASSWORD` (obrigatória, idem acima);
