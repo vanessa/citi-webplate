@@ -4,7 +4,7 @@
 
 2. Na aba `Resources` da página do projeto, adicione os seguintes add-ons ao seu projeto:
     * `Heroku Postgres`, para adicionar um banco de dados PostgreSQL;
-    * `SendGrid`, para adicionar as funcionalidades de e-mail via SendGrid (necessário ter um cartão de crédito cadastrado);
+    * `SendGrid`, (opcional, caso não seja adicionado, e-mails serão enviados para o console da aplicação) para adicionar as funcionalidades de e-mail via SendGrid (necessário ter um cartão de crédito cadastrado);
 
 3. Na aba `Settings` do projeto, clique no botão `Reveal Config Vars` para poder adicionar variáveis de ambiente ao projeto. Adicione as seguintes:
     * `DJANGO_SETTINGS_MODULE` (obrigatória, deve conter o valor `{{ project_name }}.settings.production`);
