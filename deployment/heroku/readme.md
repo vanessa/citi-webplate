@@ -21,4 +21,6 @@
 
 6. Escolha uma branch para deployments automáticos em cada modificação no repositório do GitHub (você também pode optar por só efetuar o deployment após as realizações do teste da Integração Contínua, caso seu repositório tenha essa funcionalidade habilitada);
 
-7. Clique em `Deploy Branch` para realizar seu primeiro deploy. Caso tudo tenha sido realizado corretamente, sua aplicação já estará executando no endereço criado pelo Heroku para o projeto.
+7. Clique em `Deploy Branch` para realizar seu primeiro deploy. Ainda no dashboard, vá para a aba `Resource` e garanta que seus dynos `web` e `worker` estejam ativos.
+
+8. Caso todos os passos tenham sido realizados corretamente, sua aplicação estará rodando na url indicada pelo Heroku.
