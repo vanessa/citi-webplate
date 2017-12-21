@@ -1,5 +1,4 @@
 import os
-import json
 import dj_database_url
 from decouple import config
 
@@ -10,6 +9,10 @@ ALLOWED_HOSTS = ['*']
 SECRET_KEY = config('SECRET_KEY')
 
 # Application definition
+
+DATABASES = {
+    'default': {}
+}
 
 INSTALLED_APPS = [
     'django.contrib.admin',

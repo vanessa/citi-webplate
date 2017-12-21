@@ -2,7 +2,7 @@
 *.pyc
 
 db.sqlite3
-environment.py
+.vscode
 .env
 
 node_modules/
