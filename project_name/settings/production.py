@@ -44,6 +44,7 @@ SENDGRID_API_KEY = config('SENDGRID_API_KEY', default='')
 
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Configuring MEDIA files storage using Amazon S3
 
