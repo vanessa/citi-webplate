@@ -8,6 +8,8 @@ ALLOWED_HOSTS = ['*']
 
 SECRET_KEY = config('SECRET_KEY')
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Application definition
 
 DATABASES = {

@@ -37,11 +37,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-try:
-    SENDGRID_API_KEY = config('SENDGRID_API_KEY')
-    EMAIL_BACKEND = 'sgbackend.SendGridBackend'
-except:
+SENDGRID_API_KEY = config('SENDGRID_API_KEY', default='')
+
+if SENDGRID_API_KEY == '':
     print('SENDGRID_API_KEY not configured, skipping e-mail settings')
+else:
+    EMAIL_BACKEND = 'sgbackend.SendGridBackend'
 
 # Configuring STATIC files serving using whitenoise
 
