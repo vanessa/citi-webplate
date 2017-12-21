@@ -9,7 +9,7 @@
 3. Na aba `Settings` do projeto, clique no botão `Reveal Config Vars` para poder adicionar variáveis de ambiente ao projeto. Adicione as seguintes:
     * `DJANGO_SETTINGS_MODULE` (obrigatória, deve conter o valor `{{ project_name }}.settings.production`);
     * `SECRET_KEY` (obrigatória, a mesma que você gerou em ambiente de desenvolvimento);
-    * `RECIPIENT_EMAIL` (opcional, indica para qual endereço de e-mail serão enviadas as mensagens via formulário na app `contact` e tem como valor padrão `recipient@your_project_name.com`);
+    * `RECIPIENT_EMAIL` (opcional, indica para qual endereço de e-mail serão enviadas as mensagens via formulário na app `contact` e tem como valor padrão `recipient@{{ project_name }}.com`);
     * `AWS_REGION` (obrigatória para usar o Amazon S3, representa a região onde está localizado o seu repositório do DigitalOcean Spaces);
     * `AWS_S3_ACCESS_KEY_ID` (obrigatória para usar o Amazon S3, representa a chave pública do seu repositório do DigitalOcean Spaces);
     * `AWS_S3_SECRET_ACCESS_KEY` (obrigatória para usar o Amazon S3, representa a chave privada do seu repositório do DigitalOcean Spaces);
