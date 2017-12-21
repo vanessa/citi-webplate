@@ -19,20 +19,24 @@ Lembre-se de substituir `POSTGRES_DB_USER`, `POSTGRES_DB_NAME` e `POSTGRES_DB_PA
 
 6. Clone o repositório do seu projeto para o diretório atual e acesse a pasta do mesmo usando `cd PROJECT_DIR`, substituindo `PROJECT_DIR` pelo nome da pasta do projeto;
 
-7. Instale as dependências do projeto usando `pip install -r requirements/production.txt`;
+7. Instale as dependências do projeto usando `pip install -r requirements.txt`;
 
-8. Crie um arquivo `environment.py` na pasta atual contendo as seguintes variáveis:
+8. Crie um arquivo `.env` na pasta atual contendo as seguintes variáveis, seguindo as mesmas especificações da versão de desenvolvimento:
+  * `DJANGO_SETTINGS_MODULE` (obrigatória, deve conter o valor `{{ project_name }}.settings.production`);
   * `SECRET_KEY` (obrigatória, a mesma que você gerou em ambiente de desenvolvimento);
   * `RECIPIENT_EMAIL` (opcional, indica para qual endereço de e-mail serão enviadas as mensagens via formulário na app `contact` e tem como valor padrão `recipient@your_project_name.com`);
   * `POSTGRES_DB_NAME` (obrigatória, é o mesmo valor usado no passo 2);
   * `POSTGRES_DB_USER` (obrigatória, idem acima);
   * `POSTGRES_DB_PASSWORD` (obrigatória, idem acima);
-  * `SENDGRID_API_KEY` (opcional, caso deseje usar o serviço [SendGrid](https://sendgrid.com/) para enviar e-mails);
-  * `AWS_REGION` (obrigatória, representa a região onde está localizado o seu repositório do DigitalOcean Spaces);
+  * `SENDGRID_API_KEY` (obrigatória para usar o serviço [SendGrid](https://sendgrid.com/) para enviar e-mails);
+  * `AWS_REGION` (obrigatória para usar o Amazon S3, representa a região onde está localizado o seu repositório do DigitalOcean Spaces);
+  * `AWS_S3_ACCESS_KEY_ID` (obrigatória para usar o Amazon S3, representa a chave pública do seu repositório do DigitalOcean Spaces);
+  * `AWS_S3_SECRET_ACCESS_KEY` (obrigatória para usar o Amazon S3, representa a chave privada do seu repositório do DigitalOcean Spaces);
+  * `AWS_STORAGE_BUCKET_NAME` (obrigatória para usar o Amazon S3, representa o bucket do seu repositório do DigitalOcean Spaces);
 
-9. Realize as migrações utilizando `python manage.py migrate --settings={{ project_name }}.settings.production`;
+9. Realize as migrações utilizando `python manage.py migrate`;
 
-10. Execute o `collectstatic` utilizando `python manage.py collectstatic --settings={{ project_name }}.settings.production`;
+10. Execute o `collectstatic` utilizando `python manage.py collectstatic --noinput`;
 
 11. Em seguida, vá para o diretório `deployment/digital_ocean` e lá execute `sudo bash setup.sh PROJECT_DIR USER_NAME IP_ADDRESS`, onde `PROJECT_DIR` é o nome da pasta onde está o arquivo `manage.py`, `USER_NAME` é o nome do usuário atual e `IP_ADDRESS` é o endereço de IP onde o servidor está rodando;
 
