@@ -28,7 +28,7 @@ Lembre-se de substituir `POSTGRES_DB_USER`, `POSTGRES_DB_NAME` e `POSTGRES_DB_PA
   * `POSTGRES_DB_NAME` (obrigatória, é o mesmo valor usado no passo 2);
   * `POSTGRES_DB_USER` (obrigatória, idem acima);
   * `POSTGRES_DB_PASSWORD` (obrigatória, idem acima);
-  * `SENDGRID_API_KEY` (opcional, caso deseje usar o serviço [SendGrid](https://sendgrid.com/) para enviar e-mails);
+  * `SENDGRID_API_KEY` (obrigatória para usar o serviço [SendGrid](https://sendgrid.com/) para enviar e-mails);
   * `AWS_REGION` (obrigatória para usar o Amazon S3, representa a região onde está localizado o seu repositório do DigitalOcean Spaces);
   * `AWS_S3_ACCESS_KEY_ID` (obrigatória para usar o Amazon S3, representa a chave pública do seu repositório do DigitalOcean Spaces);
   * `AWS_S3_SECRET_ACCESS_KEY` (obrigatória para usar o Amazon S3, representa a chave privada do seu repositório do DigitalOcean Spaces);
@@ -36,7 +36,7 @@ Lembre-se de substituir `POSTGRES_DB_USER`, `POSTGRES_DB_NAME` e `POSTGRES_DB_PA
 
 9. Realize as migrações utilizando `python manage.py migrate`;
 
-10. Execute o `collectstatic` utilizando `python manage.py collectstatic`;
+10. Execute o `collectstatic` utilizando `python manage.py collectstatic --noinput`;
 
 11. Em seguida, vá para o diretório `deployment/digital_ocean` e lá execute `sudo bash setup.sh PROJECT_DIR USER_NAME IP_ADDRESS`, onde `PROJECT_DIR` é o nome da pasta onde está o arquivo `manage.py`, `USER_NAME` é o nome do usuário atual e `IP_ADDRESS` é o endereço de IP onde o servidor está rodando;
 
