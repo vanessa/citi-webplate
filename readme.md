@@ -1,5 +1,7 @@
 # CITi Webplate
 
+<a href="https://zenhub.com"><img src="https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png"></a>
+
 ## Ambiente de Desenvolvimento
 
 0. É necessário ter instalado o [npm](https://www.npmjs.com/get-npm) no seu computador. Feito isso, execute `npm install -g gulp-cli` para instalar o `gulp` global em seu ambiente;
