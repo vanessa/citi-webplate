@@ -6,7 +6,7 @@
   ```bash
   createuser POSTGRES_DB_USER
   createdb POSTGRES_DB_NAME --owner POSTGRES_DB_USER
-  psql -c "ALTER USER u_urban WITH PASSWORD 'POSTGRES_DB_PASSWORD'"
+  psql -c "ALTER USER POSTGRES_DB_USER WITH PASSWORD 'POSTGRES_DB_PASSWORD'"
   exit
   ```
 Lembre-se de substituir `POSTGRES_DB_USER`, `POSTGRES_DB_NAME` e `POSTGRES_DB_PASSWORD` pelos valores apropriados (nome do usuário do banco de dados, nome do banco de dados e senha do banco de dados, respectivamente). Guarde bem esses valores, pois serão necessários no futuro;
